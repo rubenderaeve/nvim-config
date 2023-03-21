@@ -459,3 +459,6 @@ stubgen
 pylance
 variadic
 SHA
+enum
+typename
+u8
