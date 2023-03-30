@@ -46,8 +46,8 @@ nvim_tree.setup {
     auto_open = true,
   },
   update_focused_file = {
-    enable = true,
-    update_cwd = true,
+    enable = false,
+    update_cwd = false,
     ignore_list = {},
   },
   ignore_ft_on_setup = {},
@@ -113,6 +113,7 @@ nvim_tree.setup {
   },
 }
 
-keymap.set("n", "<space>s", function()
-  return require("nvim-tree.api").tree.toggle(false, false)
-end, { silent = true, desc = "toggle nvim-tree" })
+keymap.set("n", "<space>s", require("nvim-tree.api").tree.toggle, {
+  silent = true,
+  desc = "toggle nvim-tree",
+})

@@ -358,10 +358,8 @@ packer.startup {
 
     -- file explorer
     use {
-      'nvim-tree/nvim-tree.lua',
-      requires = {
-        'nvim-tree/nvim-web-devicons', -- optional
-      },
+      "nvim-tree/nvim-tree.lua",
+      requires = { "nvim-tree/nvim-web-devicons" },
       config = [[require('config.nvim-tree')]],
     }
 
