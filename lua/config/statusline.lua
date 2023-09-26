@@ -127,6 +127,11 @@ require("lualine").setup {
         spell,
         color = { fg = "black", bg = "#a7c080" },
       },
+      {
+        "diagnostics",
+        sources = { "nvim_diagnostic" },
+        symbols = {error = '🆇 ', warn = '⚠️ ', info = 'ℹ️ ', hint = ' '},
+      },
     },
     lualine_x = {
       "encoding",
@@ -140,13 +145,11 @@ require("lualine").setup {
       },
       "filetype",
     },
-    lualine_y = { "progress" },
-    lualine_z = {
+    lualine_y = {
       "location",
-      {
-        "diagnostics",
-        sources = { "nvim_diagnostic" },
-      },
+      "progress",
+    },
+    lualine_z = {
       {
         trailing_space,
         color = "WarningMsg",
