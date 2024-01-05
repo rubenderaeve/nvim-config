@@ -174,6 +174,7 @@ let g:neoformat_enabled_c = ['clangformat']
 """""""""""""""""""""""""vim-markdown settings"""""""""""""""""""
 " Disable header folding
 let g:vim_markdown_folding_disabled = 1
+let g:markdown_folding = 1
 
 " Whether to use conceal feature in markdown
 let g:vim_markdown_conceal = 1
