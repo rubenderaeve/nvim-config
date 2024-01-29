@@ -420,7 +420,7 @@ local plugin_specs = {
     build = function()
       vim.fn["firenvim#install"](0)
     end,
-    lazy = true,
+    -- lazy = true,
   },
 
   -- Debugger plugin
