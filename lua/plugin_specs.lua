@@ -3,7 +3,7 @@ local utils = require("utils")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   vim.fn.system {
     "git",
     "clone",
@@ -92,9 +92,7 @@ local plugin_specs = {
     "smoka7/hop.nvim",
     event = "VeryLazy",
     config = function()
-      vim.defer_fn(function()
-        require("config.nvim_hop")
-      end, 2000)
+      require("config.nvim_hop")
     end,
   },
 
@@ -124,19 +122,20 @@ local plugin_specs = {
       "nvim-telescope/telescope-symbols.nvim",
     },
   },
-
+  {
+    "lukas-reineke/headlines.nvim",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    config = true, -- or `opts = {}`
+  },
   -- A list of colorscheme plugin you may want to try. Find what suits you.
   { "navarasu/onedark.nvim", lazy = true },
   { "sainnhe/edge", lazy = true },
   { "sainnhe/sonokai", lazy = true },
   { "sainnhe/gruvbox-material", lazy = true },
-  { "shaunsingh/nord.nvim", lazy = true },
   { "sainnhe/everforest", lazy = true },
   { "EdenEast/nightfox.nvim", lazy = true },
-  { "rebelot/kanagawa.nvim", lazy = true },
   { "catppuccin/nvim", name = "catppuccin", lazy = true },
   { "olimorris/onedarkpro.nvim", lazy = true },
-  { "tanvirtin/monokai.nvim", lazy = true },
   { "marko-cerovac/material.nvim", lazy = true },
 
   { "nvim-tree/nvim-web-devicons", event = "VeryLazy" },
@@ -171,6 +170,7 @@ local plugin_specs = {
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "VeryLazy",
+    main = 'ibl',
     config = function()
       require("config.indent-blankline")
     end,
@@ -184,9 +184,7 @@ local plugin_specs = {
     "rcarriga/nvim-notify",
     event = "VeryLazy",
     config = function()
-      vim.defer_fn(function()
-        require("config.nvim-notify")
-      end, 2000)
+      require("config.nvim-notify")
     end,
   },
 
@@ -294,7 +292,7 @@ local plugin_specs = {
 
   -- Better git log display
   { "rbong/vim-flog", cmd = { "Flog" } },
-  { "christoomey/vim-conflicted", cmd = { "Conflicted" } },
+  { "akinsho/git-conflict.nvim", version = "*", config = true },
   {
     "ruifm/gitlinker.nvim",
     event = "User InGitRepo",
@@ -313,6 +311,11 @@ local plugin_specs = {
 
   -- Better git commit experience
   { "rhysd/committia.vim", lazy = true },
+
+  {
+    "sindrets/diffview.nvim"
+  },
+
   {
     "kevinhwang91/nvim-bqf",
     ft = "qf",
@@ -461,9 +464,7 @@ local plugin_specs = {
     "folke/which-key.nvim",
     event = "VeryLazy",
     config = function()
-      vim.defer_fn(function()
-        require("config.which-key")
-      end, 2000)
+      require("config.which-key")
     end,
   },
 
@@ -480,7 +481,6 @@ local plugin_specs = {
     end,
   },
 
-  { "ii14/emmylua-nvim", ft = "lua" },
   {
     "j-hui/fidget.nvim",
     event = "VeryLazy",

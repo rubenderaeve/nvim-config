@@ -4,15 +4,14 @@ local nvim_tree = require("nvim-tree")
 nvim_tree.setup {
   auto_reload_on_write = true,
   disable_netrw = false,
-  hijack_cursor = false,
   hijack_netrw = true,
+  hijack_cursor = false,
   hijack_unnamed_buffer_when_opening = false,
   open_on_tab = false,
   sort_by = "name",
   update_cwd = false,
   view = {
     width = 30,
-    hide_root_folder = false,
     side = "left",
     preserve_window_proportions = false,
     number = false,
